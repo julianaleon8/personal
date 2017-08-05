@@ -1,0 +1,98 @@
+CornerShop Test
+
+
+Entendiendo el problema
+
+1) Dado un conjunto de datos discretos y continuos estimar una salida continua, por lo tanto usare regresion en aprendizaje supervisado.
+2) Herramientas a utilizar Excel, Orange, SciKit Learn.
+3) Entender los datos
+  3.1) Informacion proporcionada, informacion ultil.
+  3.2) Preprocesamiento de los datos: Limpiar, convertir, interpretar.
+4) QEWQEWQWEESeleccionar tres maquinas que normalmente se comporten correctamente en este tipo de problemas
+5) Entrenar y testear el aprendizaje
+6) Predecir las casillas en blanco
+
+
+Entendiendo mi logica de pensamiento
+
+1) Analizar los datos, tipos, relevancia en la infomacion que me proporcionaban
+   Seleccione estos datos como relevantes para el aprendizaje
+   - Distancia entre la tienda y el punto de entrega: Sorprendentemente no guardaba mucha relacion con la salida
+   - Promised_time:
+   - dow: Guardaba mucha relacion con el tiempo, mis supociciones son el trafico los primeros dias de la semana
+   - actual_time: la informacion proporcionaba es muy relevante pero el formato en que se encontraba no estaba bien
+   - on_demand:
+   - Cantidad de productos por orden: Es bastante proporcional mientras mas productos mas tiempo de demora.
+   - 
+   Nota: En el repositorio en la carpeta imagenes estan los graficos que me ayudaron a decidir cuales caracteristicas eran importantes.
+   
+  1.1) Grafique los datos que creia relevante por separado comparado con el tiempo para ver si mostraban una tendendia y con ello visualizar si 
+       tenian relevancia, sorprendentemente para mi el dia prometido tiene una gran concordancia con el tiempo total.
+       
+       
+2) Pense en utilizar una base de datos para realizar los join pero me parecio muy overkilling hacerlo entonces aprendi a hacer join en excel 
+   y resulto bastante sencillo, el unico inconveniente fue el paso de formatos de Windows a Linux.
+   
+2) Utilice ORANGE pues es la herramienta que mas he utilizado ademas te brinda un acercamiento rapido y facil a una primera version de entrenamiento
+   Con ella entrene con todos los datos y las maquinas SVN, LinearRegression, Kneigbiors
+
+3) Una vez tenia una dia del entrenamiento, comence a familizarizarme con la libreria sciKit Learn y todas las herramientas.
+4) Con la herramienta fue bastante directo todo, entrene poco a poco las maquinas primero con dos caracteristicas y asi sucesivamente.
+
+Conclusiones generales:
+
+- Aprendi mucho y recorde mucho, incluso antes de comenzar hice este curso
+
+Sobre los datos:
+Yo pense que lo mas determinante para el tiempo era la distancia pero segun los graficos y la maquina no lo es tanto,
+al contrario del dia de la semana y la hora en que se realice la compra que es mucho mas proporcional, solo imaginando por que 
+sucede eso y asumiendo que siempre se desplaza con el mismo medio(vehiculo propio) debo considerar que no importa la distancia 
+si no el trafico. Entonces mis conclusiones segun los datos que tengo es que lo determinara en gran medida el tiempo de la orden 
+sera la cantidad de productos y el trafico.
+
+
+Notas:
+
+Supociciones:
+- El dia prometido es el dia en que se realiza la compra
+- El tiempo cuenta desde que el shoppers esta en la tienda, de lo contrario la informacion de la posicion del shoppers seria relevante
+- Seria util tambien saber la velocidad que se desplaza
+- Vehiculo en el cual realiza las compras
+- Todo esto ademas de predecir el tiempo podriamos aislar el factor determinante que defini la base en el tiempo de entrega y los pesos de las demas caracteristicas y con ellos intentar minimizar ese factor
+- Seria mas completo el modelo si consideramos el tiempo que tarde el shopper en llegar a la tienda
+- 
+
+Sugerencias: 
+
+Segun entiendo la estimacion del tiempo se puede separar en el tiempoDeCompara (tiempo que demora el shopper comprando) + tiempoDeEntrega = TiempoReal
+Si separamos ambos problemas obtenemos un estimador para la compra donde podemos utilizar mas informacion sobre el shopper y la compra en si + estimador de entrega donde se puede 
+utilizar el API de google maps el cual es publico, que toma en cuenta el trafico en el futuro y las distancias en calles y no directas.
+
+estimadorCompra + estimadorEntrega = TiempoEstimadoTotal
+
+De esta manera podriamos entrenar ambas maquinas por separado y tener una mejor precision en cada una. Dado que semanticamente son problemas
+distintos.
+Claro para esto no podriamos tener solo un indicador del tiempo total de la orden si no dividir ese tiempo en tiempo de la compra y tiempo
+de la entrega, creo eso es la clave para poder hacer mas eficiente el tiempo completo de las ordenes.
+
+Caracteristicas que serian utiles
+-
+
+
+Correo
+
+Buenos dias Matias,
+
+De verdad me disculpo si es muy tarde para entregar, se que no hay escusas pero el fin pasado de verdad no tuve ni tiempo ni cabeza
+para dedicarle por la situacion de mi pais, ademas queria difrutarlo como lo estoy haciendo.
+
+Te envio lo que he logrado hacer y pues independientemente de la postulacion debo decir gracias pues este mini proyecto me ha hecho recordar
+lo que de verdad amo hacer y lo mucho que me falta por aprender y lo mucho que quiero hacerlo.
+
+Y pues yo aprovechare este proyecto para seguir mejorandolo y aprender mas, solo hago un corte ahora para entregar por la verdad me
+da pena.
+
+Muchas gracias
+Saludos
+Juliana
+
